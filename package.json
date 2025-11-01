@@ -1,0 +1,55 @@
+{
+  "name": "salesforce-mcp-server",
+  "version": "1.0.0",
+  "description": "Enterprise-grade org-agnostic Salesforce MCP Server with REST API and Client Credentials Flow",
+  "type": "module",
+  "bin": {
+    "salesforce-mcp-server": "./build/index.js"
+  },
+  "files": [
+    "build",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "dev": "node --loader ts-node/esm src/index.ts",
+    "test": "npm run build && node build/test/auth.test.js",
+    "test:db": "npm run build && node build/test/database.test.js",
+    "test:sync": "npm run build && node build/test/metadata-sync.test.js",
+    "test:preflight": "npm run build && node build/test/preflight-validator.test.js",
+    "test:cache": "npm run build && node build/test/cache-manager.test.js",
+    "test:resolver": "npm run build && node build/test/dependency-resolver.test.js",
+    "demo:preflight": "npm run build && node build/test/demo-preflight.test.js",
+    "test:all": "npm run test && npm run test:db && npm run test:sync && npm run test:preflight && npm run test:cache && npm run test:resolver"
+  },
+  "keywords": [
+    "mcp",
+    "salesforce",
+    "rest-api",
+    "oauth",
+    "client-credentials",
+    "org-agnostic",
+    "model-context-protocol"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "@types/better-sqlite3": "^7.6.13",
+    "better-sqlite3": "^12.4.1",
+    "dotenv": "^16.4.5",
+    "jsforce": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}

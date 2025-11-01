@@ -1,0 +1,12 @@
+node_modules/
+build/
+.env
+*.key
+*.pem
+.DS_Store
+*.log
+
+# SQLite metadata cache
+*.db
+*.db-shm
+*.db-wal

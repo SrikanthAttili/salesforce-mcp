@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "salesforce": {
+      "command": "node",
+      "args": [
+        "c:\\Users\\srava\\OneDrive\\Documents\\mcp\\salesforce-mcp\\build\\index.js"
+      ]
+    }
+  }
+}

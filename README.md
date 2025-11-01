@@ -2,9 +2,9 @@
 
 A production-ready Model Context Protocol (MCP) server for Salesforce operations featuring intelligent duplicate detection, dependency resolution, and pre-flight validation.
 
-[![Code Quality](https://img.shields.io/badge/code%20quality-A%20(93%2F100)-brightgreen)](CODE_QUALITY_AUDIT.md)
-[![Tests](https://img.shields.io/badge/tests-passing-brightgreen)]()
-[![TypeScript](https://img.shields.io/badge/typescript-strict-blue)]()
+[![GitHub](https://img.shields.io/badge/github-SrikanthAttili%2Fsalesforce--mcp-blue?logo=github)](https://github.com/SrikanthAttili/salesforce-mcp)
+[![TypeScript](https://img.shields.io/badge/typescript-strict-blue)](https://github.com/SrikanthAttili/salesforce-mcp)
+[![Tests](https://img.shields.io/badge/tests-passing-brightgreen)](https://github.com/SrikanthAttili/salesforce-mcp)
 
 ---
 
@@ -635,7 +635,7 @@ Contributions are welcome! Please follow these guidelines:
 
 ```bash
 # 1. Fork and clone the repository
-git clone https://github.com/yourusername/salesforce-mcp.git
+git clone https://github.com/SrikanthAttili/salesforce-mcp.git
 
 # 2. Install dependencies
 npm install
@@ -651,14 +651,15 @@ npm test
 git commit -am "Add new feature"
 git push origin feature/my-feature
 
-# 6. Create pull request
+# 6. Create pull request on GitHub
+# Visit: https://github.com/SrikanthAttili/salesforce-mcp/pulls
 ```
 
 ---
 
 ## 📄 License
 
-MIT License - See LICENSE file for details
+MIT License
 
 ---
 
@@ -674,15 +675,15 @@ MIT License - See LICENSE file for details
 ## 📞 Support
 
 ### Issues
-Report bugs and request features via [GitHub Issues](https://github.com/yourusername/salesforce-mcp/issues)
+Report bugs and request features via [GitHub Issues](https://github.com/SrikanthAttili/salesforce-mcp/issues)
 
 ### Documentation
 - [Salesforce API Documentation](https://developer.salesforce.com/docs/apis)
 - [Model Context Protocol Specification](https://modelcontextprotocol.io)
-- [Project Wiki](https://github.com/yourusername/salesforce-mcp/wiki)
+- [Project Repository](https://github.com/SrikanthAttili/salesforce-mcp)
 
 ### Contact
-For questions and support, please open a GitHub issue.
+For questions and support, please open a [GitHub issue](https://github.com/SrikanthAttili/salesforce-mcp/issues).
 
 ---
 
@@ -690,8 +691,7 @@ For questions and support, please open a GitHub issue.
 
 **Production Ready** ✅
 
-- All tests passing (100%)
-- Code quality: A (93/100)
+- All tests passing
 - Zero critical bugs
 - Comprehensive documentation
 - Enterprise-grade error handling

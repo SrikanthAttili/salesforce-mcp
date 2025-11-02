@@ -61,7 +61,7 @@ Think of it as having an experienced Salesforce administrator reviewing your req
    - Processes multiple operations efficiently
    - Saves time by running independent tasks simultaneously
 
-### � Real-World Examples
+### 💡 Real-World Examples
 
 **Scenario 1: Incomplete Request**
 - **You say**: "Create a new contact"
@@ -111,7 +111,7 @@ The system maintains a local "knowledge base" about your Salesforce setup using 
 ## 🌟 Key Capabilities
 
 
-### � Intelligent Duplicate Detection
+### 🔍 Intelligent Duplicate Detection
 
 **Finds similar records even with typos or variations**
 
@@ -154,38 +154,114 @@ When you create multiple related records at once (like an Account with several C
 
 ---
 
-## � Getting Started
+## 📖 Getting Started
 
 ### What You'll Need
 
 1. **A Salesforce Account** - Your organization's Salesforce environment
 2. **An AI Assistant** - ChatGPT, Claude Desktop, GitHub Copilot, or any MCP-compatible tool
-3. **Connection Credentials** - Your Salesforce administrator can provide these
+3. **Salesforce Credentials** - OAuth 2.0 Client Credentials (Client ID and Client Secret)
 
-### Quick Setup Overview
+### Step 1: Get Your Salesforce Credentials
 
-**Step 1: Get Your Credentials**
-Ask your Salesforce administrator for:
-- Client ID (a unique identifier for the connection)
-- Client Secret (a secure password for the connection)
-- Your Salesforce username
-- Login URL (usually https://login.salesforce.com)
+You'll need OAuth 2.0 credentials for the Client Credentials Flow. Ask your Salesforce administrator to:
 
-**Step 2: Configure Your AI Assistant**
-Add the MCP server configuration to your AI assistant (Claude Desktop, ChatGPT, etc.). This tells the AI assistant how to connect to your Salesforce.
+1. Create a Connected App in Salesforce
+2. Enable OAuth Settings with "Client Credentials Flow"
+3. Provide you with:
+   - **Client ID** (Consumer Key)
+   - **Client Secret** (Consumer Secret)
+   - **Login URL** (e.g., https://login.salesforce.com or your custom domain)
+   - **API Version** (e.g., 65.0)
 
-**Step 3: Start Talking**
-Once connected, simply talk to your AI assistant in natural language:
+### Step 2: Install and Build the MCP Server
+
+First, clone and build the project:
+
+1. Clone the repository or download the code
+2. Install dependencies: Open terminal and run `npm install`
+3. Build the project: Run `npm run build`
+4. Note the path to `build/index.js` - you'll need this for configuration
+
+### Step 3: Configure Your AI Assistant
+
+Choose your AI assistant and follow the corresponding setup:
+
+#### Option A: Claude Desktop Setup
+
+**1. Locate the Claude Desktop config file:**
+   - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+   - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+   - **Linux**: `~/.config/Claude/claude_desktop_config.json`
+
+**2. Add the Salesforce MCP server configuration:**
+
+📄 **[View sample configuration file](https://github.com/SrikanthAttili/salesforce-mcp/blob/main/.vscode/claude_desktop_config.json)**
+
+Open your Claude Desktop config file and add the Salesforce MCP server configuration following the sample file structure.
+
+**Important Notes:**
+- Replace the path with the actual absolute path to your `build/index.js` file
+- Use double backslashes (`\\`) in Windows paths
+- Replace the credential values with your actual Salesforce credentials:
+  - `SF_LOGIN_URL`: Your Salesforce login URL (e.g., `https://login.salesforce.com` or your custom domain)
+  - `SF_CLIENT_ID`: Your OAuth Client ID (Consumer Key)
+  - `SF_CLIENT_SECRET`: Your OAuth Client Secret (Consumer Secret)
+  - `SF_API_VERSION`: API version (e.g., `65.0`)
+
+**3. Restart Claude Desktop** for the changes to take effect
+
+**4. Verify the connection:**
+   - Open Claude Desktop
+   - Ask: "Can you test the Salesforce connection?"
+   - Claude should respond with your org details if configured correctly
+
+#### Option B: GitHub Copilot Setup
+
+**1. Create the MCP configuration file:**
+
+In your VS Code workspace, create a file at `.vscode/mcp.json`
+
+**2. Add the Salesforce MCP server configuration:**
+
+📄 **[View sample configuration file](https://github.com/SrikanthAttili/salesforce-mcp/blob/main/.vscode/mcp.json)**
+
+Copy the configuration structure from the sample file and customize it with your settings.
+
+**Important Notes:**
+- Replace the path with your actual build folder location (absolute path to `build/index.js`)
+- Use forward slashes (`/`) or double backslashes (`\\`) for paths
+- Add your actual Salesforce credentials in the `env` section:
+  - `SF_LOGIN_URL`: Your Salesforce login URL
+  - `SF_CLIENT_ID`: Your OAuth Client ID
+  - `SF_CLIENT_SECRET`: Your OAuth Client Secret
+  - `SF_API_VERSION`: API version (e.g., `65.0`)
+- This configuration can be project-specific (in `.vscode/mcp.json`) or global
+
+**3. Reload VS Code** to apply the changes
+
+**4. Verify the connection:**
+   - Use GitHub Copilot chat
+   - Ask it to use the Salesforce MCP tools
+   - Test with a simple query like listing accounts
+
+### Step 4: Start Using Natural Language
+
+Once connected, you can start talking to your AI assistant in plain English:
+
+**Try these examples:**
 - "Show me all my open opportunities"
 - "Create a new account for XYZ Company in the Healthcare industry"
-- "Update the status of the ABC deal to Closed Won"
+- "Update John Smith's phone number to 555-1234"
+- "Find all contacts who work at Microsoft"
+
+The system will validate your requests, check for errors, and execute them safely!
 
 ### Supported AI Assistants
 
-- **Claude Desktop** - Anthropic's desktop AI assistant
-- **ChatGPT** - OpenAI's conversational AI (with MCP support)
-- **GitHub Copilot** - Microsoft's AI coding assistant
-- **Any MCP-Compatible Tool** - The Model Context Protocol is an open standard
+- ✅ **Claude Desktop** - Anthropic's desktop AI assistant
+- ✅ **GitHub Copilot** - Microsoft's AI coding assistant (with MCP support)
+- ✅ **Any MCP-Compatible Tool** - The Model Context Protocol is an open standard
 
 ---
 
@@ -267,8 +343,8 @@ graph TB
     Validator --> |Validation Failed| ErrorMsg[Clear Error Message<br/>with Suggestions]
     ErrorMsg --> User
     
-    Resolver --> Plan[Execution Plan<br/>Optimal Order]
-    Validator --> |Validation Passed| Plan
+    Validator --> |Validation Passed| Plan[Execution Plan<br/>Optimal Order]
+    Resolver --> |Dependencies Resolved| Plan
     
     Plan --> Exec[Salesforce Service<br/>Execute Operations]
     Exec --> |OAuth 2.0| Salesforce[(Salesforce)]
@@ -343,12 +419,12 @@ Created advanced matching to find similar records even with typos or variations.
 
 ---
 
-## � Security & Privacy
+## 🔒 Security & Privacy
 
 **Your Data is Safe**
 
 - **Industry-Standard Authentication**: Uses OAuth 2.0, the same secure method used by major apps
-- **No Data Storage**: Your Salesforce records are never permanently stored, only metadata about field structure
+- **No Data Storage**: Your Salesforce records are never permanently stored, only metadata about field structure in your local SQLite database
 - **Secure Communication**: All connections to Salesforce use encrypted HTTPS
 - **Permission Respect**: The system only does what your Salesforce account has permission to do
 - **Local Processing**: Validation happens on your computer, not on external servers

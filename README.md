@@ -2,6 +2,10 @@
 
 **Talk to Your Salesforce in Plain English**
 
+
+https://github.com/user-attachments/assets/300ac77e-db3f-4156-91d4-895a8d36b8b2
+
+
 Imagine being able to manage your Salesforce data just by talking to ChatGPT, Claude, or any AI assistant in natural language. No clicking through screens, no remembering field names, no worrying about mistakes.
 
 Just say: *"Create a new customer account for Acme Corporation"* or *"Update John Smith's phone number to 555-1234"* and it happens automatically.

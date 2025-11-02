@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "salesforce": {
+      "command": "node",
+      "args": [
+        "c:\\Users\\srava\\OneDrive\\Documents\\mcp\\salesforce-mcp\\build\\index.js"
+      ],
+      "env": {
+        "SF_LOGIN_URL": "my domain URL",
+        "SF_CLIENT_ID": "my client id",
+        "SF_CLIENT_SECRET": "my client secret for client credentials flow",
+        "SF_API_VERSION": "65.0"
+      }
+    }
+  }
+}

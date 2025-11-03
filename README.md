@@ -1,6 +1,6 @@
 # Salesforce MCP Server
 
-**Talk to Your Salesforce in Plain English**
+**Talk to Your Salesforce Org in Plain English**
 
 
 https://github.com/user-attachments/assets/300ac77e-db3f-4156-91d4-895a8d36b8b2
